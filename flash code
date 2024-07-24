@@ -1,0 +1,46 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+%}
+
+%option noyywrap
+
+DIGIT [0-9]
+ALPHA [a-zA-Z]
+
+%%
+{DIGIT}+ {
+    printf("Number: %s\n", yytext);
+}
+
+{ALPHA}+ {
+    printf("Word: %s\n", yytext);
+}
+
+[\t\n] ;
+
+%%
+
+int main() {
+Microsoft Windows [Version 10.0.22621.3810]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files (x86)\GnuWin32\bin>flex flash.l
+
+C:\Program Files (x86)\GnuWin32\bin>gcc lex.yy.c
+
+C:\Program Files (x86)\GnuWin32\bin>a.exe
+123
+Number: 123
+pra
+Word: pra
+-56
+-Number: 56
+xfgc55f
+Word: xfgc
+Number: 55
+Word: 
+
+    yylex();
+    return 0;
+}
